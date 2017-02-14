@@ -3,6 +3,7 @@ package m17btesteg12;
 /**
  * https://github.com/HugoPinto1/TestedeAvaliacao.git
  * @author a13226
+ * @version final 14.fev.2017
  */
 
 public class Janela extends javax.swing.JFrame {
@@ -68,20 +69,24 @@ public class Janela extends javax.swing.JFrame {
    private void botaoVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVerificarActionPerformed
       
     try{
-       int numero = Integer.parseInt(campoNumero.getText());
-        int i;
-        boolean bandeira;
-        bandeira = true;
-        for(i=2;i<numero/2;i++){
-           if(numero%i == 0){
-              bandeira = false;
-           }
-        }
-        if(bandeira){
-           labelPrimoSN.setText("é primo");      
-        }
+        if(campoNumero.getText().length() == 0)
+            labelPrimoSN.setText("Campo vazio");   
         else{
-           labelPrimoSN.setText("não é primo");      
+            int numero = Integer.parseInt(campoNumero.getText());
+            int i;
+            boolean bandeira;
+            bandeira = true;
+            for(i=2;i<numero/2;i++){
+               if(numero%i == 0){
+                  bandeira = false;
+               }
+            }
+            if(bandeira){
+               labelPrimoSN.setText("é primo");      
+            }
+            else{
+               labelPrimoSN.setText("não é primo");      
+            }
         }
     }
     catch(NumberFormatException e){
